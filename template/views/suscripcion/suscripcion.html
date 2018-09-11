@@ -12,6 +12,7 @@ Author     : mhuarcaya -->
         <!-- Latest compiled and minified CSS -->
         <script src="../../assets/jquery/jquery.min.js" ></script>
         <script src="./suscripcion.js" ></script>
+        <script src="../../assets/libs/file_load.js" ></script>
         <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css" >
         <link rel="stylesheet" href="../../assets/awesome/font-awesome.min.css">
         <link href="../../assets/awesome/sb-admin-2.css" rel="stylesheet">
@@ -67,13 +68,13 @@ Author     : mhuarcaya -->
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active mt-4" id="busquedaMasiva" role="tabpanel" aria-labelledby="busquedaMasiva-tab">
-                            <form action="/AvalChile/FormatoMasiva" method="POST">
+                            <form  method="POST">
                                 <div class="form-group row">
                                     <div class="col-md-7">
                                         <label for="actualizarFile">Búsqueda Masiva</label>
                                     </div>
                                     <div class="col-md-5">
-                                        <button type="submit" class="btn btn-info">Descargar Formato</button>
+                                        <button type="button" class="btn btn-info" onclick="descargarFormato()">Descargar Formato</button>
                                     </div>
                                 </div>
 
