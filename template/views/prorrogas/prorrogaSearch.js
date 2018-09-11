@@ -63,3 +63,14 @@ function comprobarProrrogas(){
       }
     )
 }
+
+function descargarFormato() {
+	$.ajax({
+		url:'../../assets/json/getPantillaProrrogas.json',
+		data: {},
+		type: "GET",
+		success: function(data) {
+			downloadByBase64(data.base64, data.filename)
+		}
+	})
+}
