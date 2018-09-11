@@ -1,0 +1,22 @@
+[
+  {
+    "rucDeudor": 20480238789,
+    "razonSocial": "Empresa Comercial G&M",
+    "asegurado":"CAPIA",
+    "nroProrroga":202483,
+    "factura":"102-34823",
+    "prorrogasAnterior": "Si cuenta con prorroga anterior",
+    "nroPoliza": 129312,
+    "estadoProrroga": "activo"
+  },
+  {
+    "rucDeudor": 20480238789,
+    "razonSocial": "Empresa Comercial G&M",
+    "asegurado":"CAPIA",
+    "nroProrroga":202483,
+    "factura":"102-34823",
+    "prorrogasAnterior": "Si cuenta con prorroga anterior",
+    "nroPoliza": 129312,
+    "estadoProrroga": "activo"
+  }
+]

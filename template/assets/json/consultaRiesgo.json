@@ -1,0 +1,26 @@
+[
+  {
+    "ruc": 20480238789,
+    "razonSocial": "Empresa Comercial G&M",
+    "cumulo":100000,
+    "riesgoVigente": 30000,
+    "estado":"aprobado",
+    "grupoEconomico": "InterCorp",
+    "prorrogas": 1230,
+    "siniestros": 0,
+    "equifax": "CPP",
+    "fechaActualizacion": "20/10/2017"
+  },
+  {
+    "ruc": 20480239789,
+    "razonSocial": "Empresa ABC",
+    "cumulo":220000,
+    "riesgoVigente": 21000,
+    "estado":"aprobado",
+    "grupoEconomico": "CrediCorp",
+    "prorrogas": 0,
+    "siniestros": 100,
+    "equifax": "Bueno",
+    "fechaActualizacion": "5/8/2018"
+  }
+]

@@ -1,0 +1,186 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 21-02-2015, 15:37:32
+    Author     : David
+*/
+
+h2 {
+	font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma,sans-serif;
+}
+
+body, input, textarea, select, button{
+    font-family: "Open Sans", "lucida grande", "Segoe UI", arial,verdana, "lucida sans unicode", tahoma,sans-serif;
+    font-size: 13px;
+    color: rgba(8, 7, 0, 0.84);
+    font-weight: normal;
+    text-align: right;
+}
+
+th{
+    background-color: #3287C9;
+    color: white;
+}
+
+.cabecera{
+    border-bottom: 1px solid #E5E5E5;
+    background: none repeat scroll 0% 0% #FFF;
+    box-sizing: border-box;
+    margin: 0px auto 50px;
+    padding: 19px 0px;
+    width: 990px;
+    height: 73px;
+}
+
+#cerrar-sesion {
+	text-align:right;
+}
+
+#cuadro-busqueda {
+	margin-left: 4%;
+}
+
+#dicom{
+	margin-left: 4%;
+	font-size: 16px;
+	float: left;
+}
+
+#sinacofi{
+	margin-left: 4%;
+	font-size: 16px;
+	float: left;
+}
+
+
+.titulo-accion{
+	font-size: 18px;
+	margin-bottom: 0.7em;
+}
+
+#centro {
+    width: 990px;
+    margin: 0px auto;
+	text-align: center;
+}
+
+#centro-busquedas {
+    width: 990px;
+
+    height: 493px;
+    margin: 0px auto;
+	text-align: left;
+	background-color:#f5f7f8;
+}
+
+#centro .logo-central {
+	margin-right: 90px;
+	margin-top: 140px;
+	margin-bottom: 110px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#centro .cuadro{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.contenedor-titulo {
+	display: block;
+	float: left;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 0.9em;
+}
+
+.contenedor-login {
+	text-align: left;
+	position: relative;
+	width: 100%;
+}
+
+.login-form {
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.contenedor-usuario{
+	width: 400px;
+	line-height: normal;
+	position: relative;
+	margin-bottom: 0.7em;
+}
+
+.error{
+	color: #DD3B38;
+	font-size: 12px;
+	min-height: 17px;
+}
+
+#contenedor-busquedas-individuales{
+    width: 100%;
+    float: left;
+}
+
+#contenedor-busqueda-masiva{
+	float: right;
+	/* left: initial; */
+	right: inherit;
+	width: 50%;
+	padding-top: -100;
+}
+
+.text-box {
+	border: 1px solid #BDC4C9;
+	font-size: 16px;
+	padding: 5px 6px;
+	width: 50%;
+	margin: 2px 0px 5px;
+	min-height: 34px;
+	line-height: normal;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.boton {
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background-color:#007dc1;
+	border-radius: 0px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding: 8px 11px;
+	text-decoration:none;
+	text-shadow: 0px 1px 0px #59A7CE;
+	margin-left: 8px;
+        height: 34px;
+   }
+
+.boton:hover {
+	background-color:#0061a7;
+}
+.boton:active {
+	position:relative;
+	top:1px;
+}
+
+.titulo-seccion{
+	font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+	font-size: 18px;
+	color: #3D464D;
+	font-weight: normal;
+}
+.subtitulo-seccion{
+	font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+	font-size: 14px;
+	color: #3D464D;
+	font-weight: normal;
+}

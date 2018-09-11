@@ -1,0 +1,162 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-02-2015, 15:37:32
+    Author     : David
+
+*/
+
+h2 {
+	font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma,sans-serif;
+}
+
+body, input, textarea, select, button{
+    font-family: "Open Sans", "lucida grande", "Segoe UI", arial,verdana, "lucida sans unicode", tahoma,sans-serif;
+    font-size: 13px;
+    color: #3D464D;
+    font-weight: normal;
+}
+
+th{
+	background-color: #3287C9;
+	color: white;
+}
+
+.cabecera{
+    border-bottom: 1px solid #E5E5E5;
+	background: none repeat scroll 0% 0% #FFF;
+    box-sizing: border-box;
+	margin: 0px auto 50px;
+	padding: 19px 0px;
+    width: 990px;
+	height: 73px;
+}
+
+.titulo_cabecera{
+    color: royalblue; 
+    font-size: 40px; 
+    border-bottom-color: red; 
+    border: 2px; 
+    border-bottom-width: 3px;
+}
+
+
+#centro {
+    width: 990px;
+    margin: 0px auto;
+	text-align: center;
+}
+
+#centro-busquedas {
+    width: 990px;
+    margin: 0px auto;
+	text-align: left;
+	background-color:#f5f7f8;
+}
+
+
+
+#centro .logo-central {
+	margin-right: 90px;
+	margin-top: 140px;
+	margin-bottom: 120px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#centro .cuadro{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.contenedor-titulo { 
+	display: block;
+	float: left;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 0.9em;
+}
+
+.contenedor-login {
+	text-align: left;
+	position: relative;
+	width: 100%;
+}
+
+.login-form {
+	display: block;
+	padding: 0px;
+	margin: 0px;		
+}
+
+.contenedor-usuario{
+	width: 100%;
+	line-height: normal;
+	position: relative;
+	margin-bottom: 0.7em;	
+}
+
+.error{
+	color: #DD3B38;
+	font-size: 12px;
+	min-height: 17px;
+}
+
+.text-box {
+	border: 1px solid #BDC4C9;
+	font-size: 16px;
+	padding: 5px 6px;
+	width: 100%;
+	margin: 2px 0px 5px;
+	min-height: 34px;
+	line-height: normal;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.boton {
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:8px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+	margin-left: 12em;
+}
+.boton:hover {
+	background-color:#0061a7;
+}
+.boton:active {
+	position:relative;
+	top:1px;
+}
+
+.titulo-seccion{
+	font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+	font-size: 18px;
+	color: #3D464D;
+	font-weight: normal;
+}
+.tabla_presentacion{
+    border: "1"; 
+    width: 100%;
+    border-color: #BDC4C9;
+    border-collapse: collapse;
+}  
+
+
+
+
+
+
+
+

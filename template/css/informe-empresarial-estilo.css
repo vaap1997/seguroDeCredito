@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+
+img {
+	border: none; 
+}
+
+.tablaRUT {
+    border:0;
+    width:940px;
+    align: center;
+    cellpadding: 0;
+    cellspacing: 0;
+}
+
+td {
+	background-position:bottom;
+	background-repeat: repeat-x;
+}
+
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5f6a72;
+	
+}
+
+body {
+	margin-top: 0px;
+}
+
+.cuadroFuerte {
+    width: 233px; 
+    height: 15px; 
+    bgcolor:#d7dfe3;
+    background-image:url(resources/img/i.com.crp.cmn_punteado.gif);
+}
+.cuadroLight {
+    width: 217px; 
+    height: 15px; 
+    bgcolor:#f5f7f8;
+}
+
+.letraGrande {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #5f6a72;
+
+}
+
+a.negrita:hover {
+font-weight:bold;
+}
+
+
+/* root element for tabs  */
+.tabs { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #9a9a9a;	
+}
+
+/* single tab */
+.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+/* link inside the tab. uses a background image */
+.tabs a { 
+	background: url(../img/i.com.crp.tabs.png) no-repeat -652px 0;
+	font-size:12px;
+	display:block;
+	height: 30px;  
+	line-height:30px;
+	width: 111px;
+	text-align:center;	
+	text-decoration:none;
+	color:#929292;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+}
+
+.tabs a:active {
+	outline:none;		
+}
+
+/* when mouse enters the tab move the background image */
+.tabs a:hover {
+	background-position: -652px -31px;	
+	color:#fff;	
+}
+
+/* active tab uses a class name "current". it's highlight is also done by moving the background image. */
+.tabs .current, .tabs .current:hover, .tabs li.current a {
+	background-position: -652px -62px;		
+	cursor:default !important; 
+	color:#666 !important;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+
+/* width 1 */
+.tabs .w1 			{ background-position: -519px 0; width:134px; }
+.tabs .w1:hover 	{ background-position: -519px -31px; }
+.tabs .w1.current { background-position: -519px -62px; }
+
+/* width 2 */
+.tabs .w2 			{ background-position: -366px -0px; width:154px; }
+.tabs .w2:hover 	{ background-position: -366px -31px; }
+.tabs .w2.current { background-position: -366px -62px; }
+
+
+/* width 3 */
+.tabs .w3 			{ background-position: -193px -0px; width:174px; }
+.tabs .w3:hover 	{ background-position: -193px -31px; }
+.tabs .w3.current { background-position: -193px -62px; }
+
+/* width 4 */
+.tabs .w4 			{ background-position: -0px -0px; width:194px; }
+.tabs .w4:hover 	{ background-position: -0px -31px; }
+.tabs .w4.current { background-position: -0px -62px; }
+
+
+/* initially all panes are hidden */ 
+.panes .pane {
+	display:none;		
+}
+
+
+
+
+#accordion h2 {
+	margin:0;
+	padding:5px 15px;
+	font-size:14px;
+	font-weight:normal;
+	color:#FFF;
+	border-bottom:1px solid #ddd;
+	cursor:pointer;
+	background-image:url(../img/i.com.crp.mas.png);
+	background-repeat:no-repeat;
+}
+
+/* currently active header */
+#accordion h2.current {
+	cursor:default;
+	background-image:url(../img/i.com.crp.menos.png);
+	background-repeat:no-repeat;
+}
+
+#tdIndicadorTamanio {
+	background-repeat:no-repeat;
+}

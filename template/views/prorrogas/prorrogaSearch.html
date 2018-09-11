@@ -1,0 +1,193 @@
+
+<!-- Document   : consulta2
+Created on : 16/08/2017, 11:40:48 AM
+Author     : mhuarcaya -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AVLA Perú - PRÓRROGAS</title>
+        <meta charset="utf-8">
+        <script src="../../assets/jquery/jquery.min.js" ></script>
+        <script src="./prorrogaSearch.js" ></script>
+        <!-- <script src="js/.js" ></script> -->
+        <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css" >
+        <link rel="stylesheet" href="../../assets/awesome/font-awesome.min.css">
+        <link href="../../assets/awesome/sb-admin-2.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../assets/awesome/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="./ngProgress.css"/>
+
+    </head>
+    <body ng-app="myApp" >
+        <div class="container-fluid" id="contained">
+
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar navbar-light bg-faded">
+                    <a class="navbar-brand" href="/AvalChile/Consulta">
+                        <img src="../../assets/img/avla.png"  class="d-inline-block align-top" alt="">
+                    </a>
+                </nav>
+            </nav>
+        </div>
+        <div class="container pt-5">
+            <div class="row pb-4">
+                <div class="col-md-12">
+                    <p class="h4 text-center">
+                        PRÓRROGAS - Seguro de Crédito
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <nav class="nav nav-tabs" id="myTab" role="tablist">
+                        <a class="nav-item nav-link active" id="busquedaIndividual-tab" data-toggle="tab" href="#busquedaIndividual" role="tab" aria-controls="busquedaIndividual" aria-expanded="true">Búsqueda</a>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active mt-5" id="busquedaIndividual" role="tabpanel" aria-labelledby="busquedaIndividual-tab">
+                            <!-- <form class="form-inline" name="buscar" action="Busqueda" method="GET"> -->
+                            <div class="row mt-2">
+                              <div class="form-group mx-sm-3">
+                                  RUC deudor:<br>
+                                  <input type="text" class="form-control-plaintext" id="RUC" name="RUC" placeholder="RUC o DNI">
+                              </div>
+                              <div class="col-md-2">
+                                  <div class="form-group mx-sm-3">
+                                      Factura:<br>
+                                      <input type="text" class="form-control-plaintext" id="Factura" name="Factura" placeholder="Número de factura">
+                                  </div>
+                              </div>
+                              <div class="col-md-7">
+                                <button type="submit" class="btn btn-primary" onclick="buscardeudor()"> Buscar</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="busquedaMasiva-tab" data-toggle="tab" href="#busquedaMasiva" role="tab" aria-controls="busquedaMasiva" aria-expanded="true">Búsqueda Masiva</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active mt-4" id="busquedaMasiva" role="tabpanel" aria-labelledby="busquedaMasiva-tab">
+                            <form action="/AvalChile/FormatoMasiva" method="POST">
+                                <div class="form-group row">
+                                    <div class="col-md-7">
+                                        <label for="actualizarFile">Búsqueda Masiva</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <button type="submit" class="btn btn-info">Descargar Formato</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <form ng-submit="verificar($event)" id="BusquedaMasiva2" action="/AvalChile/BusquedaMasivaServlet" name="BusquedaMasiva" method="POST" enctype="multipart/form-data" ng-controller="myCtrl">
+                                <div class="form-group row">
+                                    <div class="col-md-7">
+                                        <input type="file" class="form-control-file" id="busquedaMasivaFile" name="excelMasivo">
+                                    </div>
+                                </div>
+                            </form>
+                        <div class="col-md-5">
+                            <button type="submit" class="btn btn-primary"  onclick="comprobarProrrogas()">Buscar</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            </div>
+              <div id="nav-tabContentProrroga">
+                <div class="row mt-5" >
+                  <div class="col-md-6">
+                    <div class="form-group mx-sm-6">
+                        <b>RUC deudor:</b><br>
+                        <div id="RUC_deudor">
+                          ejemplito
+                        </div>
+                    </div>
+                    <div class="form-group mx-sm-6">
+                        <b>Razón Social:</b><br>
+                        <div id="RazónSocial">
+                          ejemplito
+                        </div>
+                    </div>
+                    <div class="form-group mx-sm-6">
+                        <b>Asegurado:</b><br>
+                        <div id="Asegurado">
+                          ejemplito
+                        </div>
+                    </div>
+                    <div class="form-group mx-sm-6">
+                        <b>Número de prórroga:</b><br>
+                        <div id="NumProrroga">
+                          ejemplito
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group mx-sm-6">
+                          <b>Factura:</b><br>
+                          <div id="numFactura">
+                            ejemplito
+                          </div>
+                      </div>
+                      <div class="form-group mx-sm-6">
+                          <b>Prórrogas anteriores:</b><br>
+                          <div id="prorroga_anterior">
+                            ejemplito
+                          </div>
+                      </div>
+                      <div class="form-group mx-sm-6">
+                          <b>Número de póliza:</b><br>
+                          <div id="NúmeroPóliza">
+                            ejemplito
+                          </div>
+                      </div>
+                      <div class="form-group mx-sm-6">
+                          <b>Estado de prórroga:</b><br>
+                          <div id="EstadoPrórroga">
+                            ejemplito
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6">
+                      <br>
+                      <button type="submit" class="btn btn-primary">Añadir prórroga</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12" id="tablaProrrogas" >
+                <div class="panel panel-default" >
+                  <br>
+                  <br>
+                  <table class="table" id="prorrogaConsult">
+                    <thead>
+                      <tr>
+                        <th>Ruc</th>
+                        <th>Razón social</th>
+                        <th>Asegurado</th>
+                        <th>Nro póliza</th>
+                        <th>Factura</th>
+                        <th>Prórroga Anterior</th>
+                        <th>Nro prórroga</th>
+                        <th>Estado de prórroga</th>
+                      </tr>
+                  </thead>
+                  <tbody id="prorrogaConsultBody">
+
+                    </tbody>
+                  </table>
+                    <!-- /.panel-body -->
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

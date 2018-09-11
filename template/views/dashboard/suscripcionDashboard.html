@@ -1,0 +1,148 @@
+
+<!-- Document   : consulta2
+Created on : 16/08/2017, 11:40:48 AM
+Author     : mhuarcaya -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AVLA Perú - PRÓRROGAS</title>
+        <meta charset="utf-8">
+        <!-- Latest compiled and minified CSS -->
+        <script src="../../assets/jquery/jquery.min.js" ></script>
+        <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css" >
+        <link rel="stylesheet" href="../../assets/awesome/font-awesome.min.css">
+        <link href="../../assets/awesome/sb-admin-2.css" rel="stylesheet">
+
+        <style>
+        #MostRisky {
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+          #MostRisky td, #MostRisky th {
+            border: 2px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(1) {
+            background-color: #dddddd;
+        }
+        </style>
+    </head>
+    <body ng-app="myApp" >
+        <div class="container-fluid" id="contained">
+
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar navbar-light bg-faded">
+                    <a class="navbar-brand" href="/AvalChile/Consulta">
+                        <img src="../../assets/img/avla.png"  class="d-inline-block align-top" alt="">
+                    </a>
+                </nav>
+            </nav>
+        </div>
+        <div class="container pt-5">
+            <div class="row pb-4">
+                <div class="col-md-12">
+                    <p class="h4 text-center">
+                        PRÓRROGAS - Seguro de Crédito
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <nav class="nav nav-tabs" id="myTab" role="tablist">
+                        <a class="nav-item nav-link active" id="busquedaIndividual-tab" data-toggle="tab" href="#busquedaIndividual" role="tab" aria-controls="busquedaIndividual" aria-expanded="true">Dashboard</a>
+                    </nav>
+                    <div class="row mt-5">
+                      <div class="col-lg-6">
+                          <div class="panel panel-default">
+                            <br>
+                            <br>
+                              <div class="panel-heading text-center">
+                                  <b>Multiple Axes Line Chart Example</b>
+                                  <br>
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="flot-chart">
+                                      <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+                                  </div>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="panel panel-default" >
+                            <br>
+                            <br>
+                            <div class="panel-heading  text-center">
+                              <b>Top10 riego vigente</b>
+                              <br>
+                            </div>
+                            <table id="MostRisky">
+                              <tr>
+                                <th>Company</th>
+                                <th>Contact</th>
+                                <th>Country</th>
+                              </tr>
+                              <tr>
+                                <td>Alfreds Futterkiste</td>
+                                <td>Maria Anders</td>
+                                <td>Germany</td>
+                              </tr>
+                              <tr>
+                                <td>Centro comercial Moctezuma</td>
+                                <td>Francisco Chang</td>
+                                <td>Mexico</td>
+                              </tr>
+                              <tr>
+                                <td>Ernst Handel</td>
+                                <td>Roland Mendel</td>
+                                <td>Austria</td>
+                              </tr>
+                              <tr>
+                                <td>Island Trading</td>
+                                <td>Helen Bennett</td>
+                                <td>UK</td>
+                              </tr>
+                              <tr>
+                                <td>Laughing Bacchus Winecellars</td>
+                                <td>Yoshi Tannamuri</td>
+                                <td>Canada</td>
+                              </tr>
+                              <tr>
+                                <td>Magazzini Alimentari Riuniti</td>
+                                <td>Giovanni Rovelli</td>
+                                <td>Italy</td>
+                              </tr>
+                            </table>
+                              <!-- /.panel-body -->
+                        </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+
+        <script src="../../assets/jquery/jquery.min.js"></script>
+
+        <script src="../../assets/jquery/flot/excanvas.min.js"></script>
+        <script src="../../assets/jquery/flot/jquery.flot.js"></script>
+        <script src="../../assets/jquery/flot/jquery.flot.pie.js"></script>
+        <script src="../../assets/jquery/flot/jquery.flot.resize.js"></script>
+        <script src="../../assets/jquery/flot/jquery.flot.time.js"></script>
+        <script src="./flot-data.js"></script>
+
+        <script src="./sb-admin-2.js"></script>
+    </body>
+</html>
