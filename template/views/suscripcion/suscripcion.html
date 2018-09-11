@@ -82,12 +82,12 @@ Author     : mhuarcaya -->
                             <form ng-submit="verificar($event)" id="BusquedaMasiva2" action="/AvalChile/BusquedaMasivaServlet" name="BusquedaMasiva" method="POST" enctype="multipart/form-data" ng-controller="myCtrl">
                                 <div class="form-group row">
                                     <div class="col-md-7">
-                                        <input type="file" class="form-control-file" id="busquedaMasivaFile" name="excelMasivo">
+                                        <input type="file" class="form-control-file" onchange="getFilename(this)" id="busquedaMasivaFile" name="excelMasivo">
                                     </div>
                                 </div>
                             </form>
                         <div class="col-md-5">
-                            <button type="submit" class="btn btn-primary">Buscar</button>
+                            <button type="button" class="btn btn-primary" onclick="comprobarRiesgoMasivo()">Buscar</button>
                         </div>
                         <br>
                     </div>

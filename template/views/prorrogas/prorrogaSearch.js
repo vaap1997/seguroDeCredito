@@ -9,6 +9,7 @@ function buscardeudor(){
   if( !ruc || !numFactura){
     alert("Ingrese ambos campos")
   }else{
+    $("#prorrogaConsultBody").html('');
     $.ajax( {
       url:'../../assets/json/getDeudor.json',
       data: {
@@ -53,7 +54,7 @@ var fileToUpload = {};
 
 function getFilename(event) {
 	fileToUpload = {};
-	fileChange(event, fileToUpload);	
+	fileChange(event, fileToUpload);
 }
 
 function comprobarProrrogas(){
@@ -62,7 +63,7 @@ function comprobarProrrogas(){
 		$.ajax( {
 			url:'../../assets/json/getMasiveDeudor.json',
 			data: fileToUpload,
-			type: "GET",
+			type: "POST",
 			success: function(data) {
 				data.forEach(function(item){
 					$("#prorrogaConsultBody").append(`
@@ -77,8 +78,8 @@ function comprobarProrrogas(){
 						<td>${item.estadoProrroga}</td>
 						</tr>`
 					);
-					
-					$('#busquedaMasivaFile').val(''); 
+
+					$('#busquedaMasivaFile').val('');
 					fileToUpload = {};
 				})
 				$("#nav-tabContentProrroga").hide();
