@@ -38,32 +38,6 @@ function buscardeudor(){
 
 }
 
-function comprobarProrrogas(){
-  var ruc = $("#rut").val();
-  $.ajax( {
-    url:'../../assets/json/getMasiveDeudor.json',
-    type: "GET",
-    success: function(data) {
-            data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
-                  <tr>
-                    <td>${item.rucDeudor}</td>
-                    <td>${item.razonSocial}</td>
-                    <td>${item.nroPoliza}</td>
-                    <td>${item.asegurado}</td>
-                    <td>${item.factura}</td>
-                    <td>${item.prorrogasAnterior}</td>
-                    <td>${item.nroProrroga}</td>
-                    <td>${item.estadoProrroga}</td>
-                  </tr>`)
-            })
-            $("#nav-tabContentProrroga").hide();
-            $("#tablaProrrogas").show()
-        }
-      }
-    )
-}
-
 function descargarFormato() {
 	$.ajax({
 		url:'../../assets/json/getPantillaProrrogas.json',
@@ -73,4 +47,43 @@ function descargarFormato() {
 			downloadByBase64(data.base64, data.filename)
 		}
 	})
+}
+
+var fileToUpload = {};
+
+function getFilename(event) {
+	fileToUpload = {};
+	fileChange(event, fileToUpload);	
+}
+
+function comprobarProrrogas(){
+	if(fileToUpload.filename) {
+		$("#prorrogaConsultBody").html('');
+		$.ajax( {
+			url:'../../assets/json/getMasiveDeudor.json',
+			data: fileToUpload,
+			type: "GET",
+			success: function(data) {
+				data.forEach(function(item){
+					$("#prorrogaConsultBody").append(`
+						<tr>
+						<td>${item.rucDeudor}</td>
+						<td>${item.razonSocial}</td>
+						<td>${item.nroPoliza}</td>
+						<td>${item.asegurado}</td>
+						<td>${item.factura}</td>
+						<td>${item.prorrogasAnterior}</td>
+						<td>${item.nroProrroga}</td>
+						<td>${item.estadoProrroga}</td>
+						</tr>`
+					);
+					
+					$('#busquedaMasivaFile').val(''); 
+					fileToUpload = {};
+				})
+				$("#nav-tabContentProrroga").hide();
+				$("#tablaProrrogas").show()
+			}
+		});
+	}
 }

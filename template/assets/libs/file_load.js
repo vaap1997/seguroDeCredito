@@ -201,3 +201,32 @@ function getObjectUrlOfBase64(base64) {
 function downloadByBase64(base64, filename) {
 	return download(base64ToArrayBuffer(base64), filename);
 }
+
+var _fileToUpload = {};
+
+function fileChange(event, fileToUpload) {
+	if(event.files && event.files[0]) {
+		_fileToUpload = fileToUpload;
+		_fileToUpload.filename = event.files[0].name;
+		_fileToUpload.peso = bytesToSize(event.files[0].size);
+		
+		handleFileSelect(event, fileToUpload)
+	}
+}
+  
+function handleFileSelect(event, fileToUpload) {
+	var files = event.files;
+	var file = files[0];
+
+	if (files && file) {
+		var reader = new FileReader();
+
+		reader.onload = _handleReaderLoaded.bind(this);
+
+		return reader.readAsBinaryString(file);
+	}
+}
+
+function _handleReaderLoaded(readerEvt) {
+	_fileToUpload.base64 = btoa(readerEvt.target.result);
+}
