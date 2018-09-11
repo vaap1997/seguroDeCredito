@@ -172,6 +172,7 @@ Author     : mhuarcaya -->
                   <table class="table" id="prorrogaConsult">
                     <thead>
                       <tr>
+                        <th><input type="checkbox" id="checkboxTodasProrrogas" value="1" onclick="seleccionarTodasProrrogas()"></th>
                         <th>Ruc</th>
                         <th>Razón social</th>
                         <th>Asegurado</th>
@@ -182,13 +183,16 @@ Author     : mhuarcaya -->
                         <th>Estado de prórroga</th>
                       </tr>
                   </thead>
-                  <tbody id="prorrogaConsultBody">
+					<tbody id="prorrogaConsultBody">
 
                     </tbody>
                   </table>
                     <!-- /.panel-body -->
               </div>
             </div>
+			<div class="col-md-7">
+				<button type="submit" class="btn btn-primary" onclick="grabarProrrogas()"> Grabar</button>
+			  </div>
         </div>
     </body>
 </html>
