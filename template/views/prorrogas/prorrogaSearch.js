@@ -9,7 +9,6 @@ function buscardeudor(){
   if( !ruc || !numFactura){
     alert("Ingrese ambos campos")
   }else{
-    $("#prorrogaConsultBody").html('');
     $.ajax( {
       url:'../../assets/json/getDeudor.json',
       data: {
@@ -54,20 +53,27 @@ var fileToUpload = {};
 
 function getFilename(event) {
 	fileToUpload = {};
-	fileChange(event, fileToUpload);
+	fileChange(event, fileToUpload);	
 }
+
+var prorrogas = [];
+var prorrogasSeleccionadas = [];
 
 function comprobarProrrogas(){
 	if(fileToUpload.filename) {
 		$("#prorrogaConsultBody").html('');
+		prorrogas = [];
+		prorrogasSeleccionadas = [];
 		$.ajax( {
 			url:'../../assets/json/getMasiveDeudor.json',
 			data: fileToUpload,
 			type: "POST",
 			success: function(data) {
-				data.forEach(function(item){
+				prorrogas = data;
+				data.forEach(function(item, index){
 					$("#prorrogaConsultBody").append(`
 						<tr>
+						<td><input type="checkbox" id="prorroga-${index}" onclick="agregarProrroga(${index})"></td>
 						<td>${item.rucDeudor}</td>
 						<td>${item.razonSocial}</td>
 						<td>${item.nroPoliza}</td>
@@ -78,8 +84,8 @@ function comprobarProrrogas(){
 						<td>${item.estadoProrroga}</td>
 						</tr>`
 					);
-
-					$('#busquedaMasivaFile').val('');
+					
+					$('#busquedaMasivaFile').val(''); 
 					fileToUpload = {};
 				})
 				$("#nav-tabContentProrroga").hide();
@@ -87,4 +93,46 @@ function comprobarProrrogas(){
 			}
 		});
 	}
+}
+
+function agregarProrroga(index) {
+	indexOf = prorrogasSeleccionadas.indexOf(index);
+	if(indexOf == -1) {
+		prorrogasSeleccionadas.push(index);
+	} else {
+		prorrogasSeleccionadas.splice(indexOf, 1);
+	}
+	
+	if(prorrogasSeleccionadas.length == prorrogas.length) {
+		$('#checkboxTodasProrrogas').prop("checked",true);
+	} else {
+		$("#checkboxTodasProrrogas").prop('checked', false); 
+	}
+}
+
+function seleccionarTodasProrrogas() {
+	prorrogasSeleccionadas = [];
+	prorrogas.forEach(function(item, index){
+		if($('#checkboxTodasProrrogas:checked').length) {
+			prorrogasSeleccionadas.push(index);
+			$('#prorroga-'+index).prop("checked",true);
+		} else {
+			$('#prorroga-'+index).prop("checked",false);
+		}
+	});
+}
+
+function grabarProrrogas() {
+	prorrogasParaGrabar = prorrogas.filter(function(item, index) { 		
+		return prorrogasSeleccionadas.indexOf(index) != -1;
+	})
+	
+	$.ajax({
+		url:'../../assets/json/grabarProrrogas.json',
+		data: {prorrogas: prorrogasParaGrabar},
+		type: "POST",
+		success: function(data) {
+			alert('Las prorrogas han sido grabadas')
+		}
+	});
 }
