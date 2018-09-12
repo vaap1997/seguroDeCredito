@@ -17,11 +17,11 @@ function comprobarRiesgo(){
       },
       type: "GET",
       success: function(data) {
-              console.log(data);
+              prorrogas = data;
               data.forEach(function(item, index){
                 $("#riskConsultBody").append(`
                     <tr>
-                      <td><input type="checkbox" id="prorroga-${index}" onclick="agregarSiniestro(${index})"></td>
+                      <td><input type="checkbox" id="suscripcion-${index}" onclick="agregarSiniestro(${index})"></td>
                       <td>${item.ruc}</td>
                       <td>${item.razonSocial}</td>
                       <td>${item.cumulo}</td>
@@ -69,10 +69,11 @@ function comprobarRiesgoMasivo(){
 			data: fileToUpload,
 			type: "POST",
 			success: function(data, index) {
+        prorrogas = data;
 				data.forEach(function(item){
 					$("#prorrogaConsultBody").append(`
 						<tr>
-            <td><input type="checkbox" id="prorroga-${index}" onclick="agregarSiniestro(${index})"></td>
+            <td><input type="checkbox" id="suscripcion-${index}" onclick="agregarSiniestro(${index})"></td>
             <td>${item.ruc}</td>
             <td>${item.razonSocial}</td>
             <td>${item.cumulo}</td>
@@ -95,6 +96,9 @@ function comprobarRiesgoMasivo(){
 	}
 }
 
+var prorrogas = [];
+var prorrogasSeleccionadas = [];
+
 function agregarSiniestro(index) {
 	indexOf = prorrogasSeleccionadas.indexOf(index);
 	if(indexOf == -1) {
@@ -104,20 +108,21 @@ function agregarSiniestro(index) {
 	}
 
 	if(prorrogasSeleccionadas.length == prorrogas.length) {
-		$('#checkboxTodasProrrogas').prop("checked",true);
+		$('#checkboxTodosSiniestros').prop("checked",true);
 	} else {
-		$("#checkboxTodasProrrogas").prop('checked', false);
+		$("#checkboxTodosSiniestros").prop('checked', false);
 	}
 }
 
 function seleccionarTodosSiniestros() {
 	prorrogasSeleccionadas = [];
 	prorrogas.forEach(function(item, index){
-		if($('#checkboxTodasProrrogas:checked').length) {
+		if($('#checkboxTodosSiniestros:checked').length) {
+      console.log("funciona");
 			prorrogasSeleccionadas.push(index);
-			$('#prorroga-'+index).prop("checked",true);
+			$('#suscripcion-'+index).prop("checked",true);
 		} else {
-			$('#prorroga-'+index).prop("checked",false);
+			$('#suscripcion-'+index).prop("checked",false);
 		}
 	});
 }
