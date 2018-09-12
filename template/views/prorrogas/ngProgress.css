@@ -21,6 +21,10 @@
     display: none;
 }
 
+#tablaProrrogas {
+    display: none;
+}
+
 #prorrogaConsult thead tr{
     background-color: #dddddd;
 }

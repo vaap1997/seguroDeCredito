@@ -1,3 +1,7 @@
 #riskConsult thead tr{
     background-color: #dddddd;
 }
+
+#tablaRiesgos {
+    display: none;
+}

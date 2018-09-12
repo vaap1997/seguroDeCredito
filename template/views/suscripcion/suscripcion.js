@@ -17,10 +17,11 @@ function comprobarRiesgo(){
       },
       type: "GET",
       success: function(data) {
-              console.log(data);
-              data.forEach(function(item){
+              prorrogas = data;
+              data.forEach(function(item, index){
                 $("#riskConsultBody").append(`
                     <tr>
+                      <td><input type="checkbox" id="suscripcion-${index}" onclick="agregarSiniestro(${index})"></td>
                       <td>${item.ruc}</td>
                       <td>${item.razonSocial}</td>
                       <td>${item.cumulo}</td>
@@ -33,8 +34,7 @@ function comprobarRiesgo(){
                       <td>${item.fechaActualizacion}</td>
                     </tr>`)
               })
-
-              $("#tablaRiesgos").show()
+              $("#tablaRiesgos").show();
           }
         }
       )
@@ -68,10 +68,12 @@ function comprobarRiesgoMasivo(){
 			url:'../../assets/json/consultaRiesgo.json',
 			data: fileToUpload,
 			type: "POST",
-			success: function(data) {
+			success: function(data, index) {
+        prorrogas = data;
 				data.forEach(function(item){
 					$("#prorrogaConsultBody").append(`
 						<tr>
+            <td><input type="checkbox" id="suscripcion-${index}" onclick="agregarSiniestro(${index})"></td>
             <td>${item.ruc}</td>
             <td>${item.razonSocial}</td>
             <td>${item.cumulo}</td>
@@ -88,8 +90,39 @@ function comprobarRiesgoMasivo(){
 					$('#busquedaMasivaFile').val('');
 					fileToUpload = {};
 				})
-				$("#riskConsultBody").show()
+		     $("#tablaRiesgos").show()
 			}
 		});
 	}
+}
+
+var prorrogas = [];
+var prorrogasSeleccionadas = [];
+
+function agregarSiniestro(index) {
+	indexOf = prorrogasSeleccionadas.indexOf(index);
+	if(indexOf == -1) {
+		prorrogasSeleccionadas.push(index);
+	} else {
+		prorrogasSeleccionadas.splice(indexOf, 1);
+	}
+
+	if(prorrogasSeleccionadas.length == prorrogas.length) {
+		$('#checkboxTodosSiniestros').prop("checked",true);
+	} else {
+		$("#checkboxTodosSiniestros").prop('checked', false);
+	}
+}
+
+function seleccionarTodosSiniestros() {
+	prorrogasSeleccionadas = [];
+	prorrogas.forEach(function(item, index){
+		if($('#checkboxTodosSiniestros:checked').length) {
+      console.log("funciona");
+			prorrogasSeleccionadas.push(index);
+			$('#suscripcion-'+index).prop("checked",true);
+		} else {
+			$('#suscripcion-'+index).prop("checked",false);
+		}
+	});
 }
