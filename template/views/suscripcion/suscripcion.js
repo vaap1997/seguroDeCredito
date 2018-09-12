@@ -1,5 +1,4 @@
-
-$.ready(function(){
+$(function(){
   $("#tablaRiesgos").hide();
 })
 

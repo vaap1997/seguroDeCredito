@@ -1,5 +1,4 @@
-
-$.ready(function(){
+$(function(){
   $("#nav-tabContentProrroga").hide();
   $("#tablaProrrogas").hide();
 })
