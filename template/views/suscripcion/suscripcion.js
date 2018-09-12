@@ -18,9 +18,10 @@ function comprobarRiesgo(){
       type: "GET",
       success: function(data) {
               console.log(data);
-              data.forEach(function(item){
+              data.forEach(function(item, index){
                 $("#riskConsultBody").append(`
                     <tr>
+                      <td><input type="checkbox" id="prorroga-${index}" onclick="agregarSiniestro(${index})"></td>
                       <td>${item.ruc}</td>
                       <td>${item.razonSocial}</td>
                       <td>${item.cumulo}</td>
@@ -33,8 +34,7 @@ function comprobarRiesgo(){
                       <td>${item.fechaActualizacion}</td>
                     </tr>`)
               })
-
-              $("#tablaRiesgos").show()
+              $("#tablaRiesgos").show();
           }
         }
       )
@@ -68,10 +68,11 @@ function comprobarRiesgoMasivo(){
 			url:'../../assets/json/consultaRiesgo.json',
 			data: fileToUpload,
 			type: "POST",
-			success: function(data) {
+			success: function(data, index) {
 				data.forEach(function(item){
 					$("#prorrogaConsultBody").append(`
 						<tr>
+            <td><input type="checkbox" id="prorroga-${index}" onclick="agregarSiniestro(${index})"></td>
             <td>${item.ruc}</td>
             <td>${item.razonSocial}</td>
             <td>${item.cumulo}</td>
@@ -88,8 +89,35 @@ function comprobarRiesgoMasivo(){
 					$('#busquedaMasivaFile').val('');
 					fileToUpload = {};
 				})
-				$("#riskConsultBody").show()
+		     $("#tablaRiesgos").show()
 			}
 		});
 	}
+}
+
+function agregarSiniestro(index) {
+	indexOf = prorrogasSeleccionadas.indexOf(index);
+	if(indexOf == -1) {
+		prorrogasSeleccionadas.push(index);
+	} else {
+		prorrogasSeleccionadas.splice(indexOf, 1);
+	}
+
+	if(prorrogasSeleccionadas.length == prorrogas.length) {
+		$('#checkboxTodasProrrogas').prop("checked",true);
+	} else {
+		$("#checkboxTodasProrrogas").prop('checked', false);
+	}
+}
+
+function seleccionarTodosSiniestros() {
+	prorrogasSeleccionadas = [];
+	prorrogas.forEach(function(item, index){
+		if($('#checkboxTodasProrrogas:checked').length) {
+			prorrogasSeleccionadas.push(index);
+			$('#prorroga-'+index).prop("checked",true);
+		} else {
+			$('#prorroga-'+index).prop("checked",false);
+		}
+	});
 }

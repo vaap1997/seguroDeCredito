@@ -1,6 +1,7 @@
 
 $.ready(function(){
   $("#nav-tabContentProrroga").hide();
+  topRiesgo();
 })
 
 function topRiesgo(){
