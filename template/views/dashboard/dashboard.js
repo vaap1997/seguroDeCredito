@@ -1,25 +1,22 @@
-
-$.ready(function(){
-  $("#nav-tabContentProrroga").hide();
+$(function(){
+  console.log("fdf");
   topRiesgo();
 })
 
 function topRiesgo(){
-  var ruc = $("#rut").val();
+  console.log("fjnkjf");
   $.ajax( {
     url:'../../assets/json/getInfoDashboard.json',
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topRiesgoTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
                     <td>${item.montoRiesgo}</td>
                   </tr>`)
             })
-            $("#nav-tabContentProrroga").hide();
-            $("#tablaProrrogas").show()
         }
       }
     )
@@ -39,8 +36,6 @@ function topProrrogas(){
                     <td>${item.montoRiesgo}</td>
                   </tr>`)
             })
-            $("#nav-tabContentProrroga").hide();
-            $("#tablaProrrogas").show()
         }
       }
     )
@@ -58,11 +53,8 @@ function topRiesgoPGP(){
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
                     <td>${item.montoRiesgo}</td>
-
                   </tr>`)
             })
-            $("#nav-tabContentProrroga").hide();
-            $("#tablaProrrogas").show()
         }
       }
     )
@@ -83,8 +75,6 @@ function topCambioCalificacion(){
                     <td>${item.nueva}</td>
                   </tr>`)
             })
-            $("#nav-tabContentProrroga").hide();
-            $("#tablaProrrogas").show()
         }
       }
     )
