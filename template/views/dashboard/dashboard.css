@@ -1,3 +1,11 @@
-#topRiesgoTable thead tr{
+#topProrrogasTableHead thead tr{
+    background-color: #dddddd;
+}
+
+#topCalificacionTableHead thead tr{
+    background-color: #dddddd;
+}
+
+#topRiesgoTableHead thead tr{
     background-color: #dddddd;
 }

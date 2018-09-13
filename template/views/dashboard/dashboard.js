@@ -2,7 +2,32 @@ $(function(){
   topRiesgo();
   topProrrogas();
   topCambioCalificacion();
+  lineGraphicData();
 })
+
+function lineGraphicData(){
+  $.ajax( {
+    url:'../../assets/json/flot-data.json',
+    type: "GET",
+    success: function(data) {
+          var linearGraphic = [{
+              data: data.riesgos,
+              label: "Riesgo(S/.)"
+          }, {
+              data: data.prorrogas,
+              label: "Prórrogas(S/.)"
+          }, {
+              data: data.siniestros,
+              label: "Siniestros(S/.)"
+          }]
+          doPlot("right",linearGraphic);
+        }
+      }
+    )
+}
+
+
+
 
 function topRiesgo(){
   console.log("fjnkjf");
