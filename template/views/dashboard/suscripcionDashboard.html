@@ -7,7 +7,7 @@ Author     : mhuarcaya -->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AVLA Perú - PRÓRROGAS</title>
+        <title>AVLA Perú - DASHBOARD</title>
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <script src="../../assets/jquery/jquery.min.js" ></script>
@@ -29,7 +29,7 @@ Author     : mhuarcaya -->
             padding: 8px;
         }
 
-        tr:nth-child(1) {
+        th {
             background-color: #dddddd;
         }
         </style>
@@ -91,7 +91,7 @@ Author     : mhuarcaya -->
                               <br>
                             </div>
                             <table class="table" id="topRiesgoTable">
-                              <thead>
+                              <thead id = "topRiesgoTableHead">
                                 <tr>
                                   <th>Ruc</th>
                                   <th>Razón social</th>
@@ -106,6 +106,60 @@ Author     : mhuarcaya -->
                         </div>
                   </div>
                 </div>
+                <div class="row mt-5">
+                  <!-- <div class="col-md-12"> -->
+                    <div class="col-lg-4">
+                      <div class="panel panel-default" >
+                        <br>
+                        <br>
+                        <div class="panel-heading  text-center">
+                          <b>Top10 Prórrogas</b>
+                          <br>
+                        </div>
+                        <table class="table" id="topProrrogaTable">
+                          <thead id="topProrrogasTableHead">
+                            <tr>
+                              <th>Ruc</th>
+                              <th>Razón social</th>
+                              <th>MontoAsegurado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topProrrogasTableBody">
+
+                          </tbody>
+                        </table>
+                          <!-- /.panel-body -->
+                    </div>
+                    </div>
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="panel panel-default" >
+                          <br>
+                          <br>
+                          <div class="panel-heading  text-center">
+                            <b>Top10 variación de calificación</b>
+                            <br>
+                          </div>
+                          <table class="table" id="topCalificacionTable">
+                            <thead id="topCalificacionTableHead">
+                              <tr>
+                                <th>Ruc</th>
+                                <th>Razón social</th>
+                                <th>MontoAsegurado</th>
+                                <th>Calificación anterior</th>
+                                <th>Calificación nueva</th>
+                              </tr>
+                          </thead>
+                          <tbody id="topCalificacionTableBody">
+
+                            </tbody>
+                          </table>
+                            <!-- /.panel-body -->
+                      </div>
+                    </div>
+              <!-- </div> -->
+            </div>
             </div>
           </div>
       </div>

@@ -1,7 +1,33 @@
 $(function(){
-  console.log("fdf");
   topRiesgo();
+  topProrrogas();
+  topCambioCalificacion();
+  lineGraphicData();
 })
+
+function lineGraphicData(){
+  $.ajax( {
+    url:'../../assets/json/flot-data.json',
+    type: "GET",
+    success: function(data) {
+          var linearGraphic = [{
+              data: data.riesgos,
+              label: "Riesgo(S/.)"
+          }, {
+              data: data.prorrogas,
+              label: "Prórrogas(S/.)"
+          }, {
+              data: data.siniestros,
+              label: "Siniestros(S/.)"
+          }]
+          doPlot("right",linearGraphic);
+        }
+      }
+    )
+}
+
+
+
 
 function topRiesgo(){
   console.log("fjnkjf");
@@ -29,7 +55,7 @@ function topProrrogas(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topProrrogasTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
@@ -48,7 +74,7 @@ function topRiesgoPGP(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topProrrogasTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
@@ -67,10 +93,11 @@ function topCambioCalificacion(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topCalificacionTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
+                    <td>${item.montoRiesgo}</td>
                     <td>${item.antigua}</td>
                     <td>${item.nueva}</td>
                   </tr>`)
