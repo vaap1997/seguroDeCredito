@@ -127,12 +127,31 @@ function grabarProrrogas() {
 		return prorrogasSeleccionadas.indexOf(index) != -1;
 	})
 
-	$.ajax({
-		url:'../../assets/json/grabarProrrogas.json',
-		data: {prorrogas: prorrogasParaGrabar},
-		type: "POST",
-		success: function(data) {
-			alert('Las prorrogas han sido grabadas')
-		}
-	});
+	if(prorrogasParaGrabar.length) {
+		$.ajax({
+			url:'../../assets/json/grabarProrrogas.json',
+			data: {prorrogas: prorrogasParaGrabar},
+			type: "POST",
+			success: function(data) {
+				alert('Las prorrogas han sido grabadas')
+			}
+		});
+	}
+}
+
+function exportarProrrogas() {
+	prorrogasParaExportar = prorrogas.filter(function(item, index) { 		
+		return prorrogasSeleccionadas.indexOf(index) != -1;
+	})
+	
+	if(prorrogasParaExportar.length) {
+		$.ajax({
+			url:'../../assets/json/exportarProrrogas.json',
+			data: {prorrogas: prorrogasParaExportar},
+			type: "POST",
+			success: function(data) {
+				downloadByBase64(data.base64, data.filename)
+			}
+		});
+	}
 }
