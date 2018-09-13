@@ -1,6 +1,7 @@
 $(function(){
-  console.log("fdf");
   topRiesgo();
+  topProrrogas();
+  topCambioCalificacion();
 })
 
 function topRiesgo(){
@@ -29,7 +30,7 @@ function topProrrogas(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topProrrogasTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
@@ -48,7 +49,7 @@ function topRiesgoPGP(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topProrrogasTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
@@ -67,10 +68,11 @@ function topCambioCalificacion(){
     type: "GET",
     success: function(data) {
             data.forEach(function(item){
-              $("#prorrogaConsultBody").append(`
+              $("#topCalificacionTableBody").append(`
                   <tr>
                     <td>${item.rucDeudor}</td>
                     <td>${item.razonSocial}</td>
+                    <td>${item.montoRiesgo}</td>
                     <td>${item.antigua}</td>
                     <td>${item.nueva}</td>
                   </tr>`)
